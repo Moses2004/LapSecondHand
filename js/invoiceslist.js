@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td>${invoice.invoice_id}</td>
                         <td>${invoice.order_id}</td>
                         <td>${invoice.vehicle_id}</td>
-                        <td>${invoice.total_amount}</td>
+                        
                         <td>${invoice.notes || 'N/A'}</td> `;
                     invoicesTableBody.appendChild(row);
                 });

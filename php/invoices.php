@@ -45,13 +45,7 @@ if ($vehicle_id === false || $vehicle_id <= 0) {
     }
     exit();
 }
-if ($total_amount === false || $total_amount < 0) {
-    echo json_encode(['success' => false, 'message' => 'Total amount must be a valid non-negative integer.']);
-    if (isset($conn) && $conn instanceof mysqli) {
-        $conn->close();
-    }
-    exit();
-}
+
 
 // Prepare and bind SQL statement for the new columns
 $stmt = $conn->prepare("INSERT INTO invoices (order_id, vehicle_id, total_amount, notes) VALUES (?, ?, ?, ?)");

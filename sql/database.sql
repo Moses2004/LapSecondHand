@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2025 at 04:13 PM
+-- Generation Time: Aug 02, 2025 at 07:07 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,16 +31,8 @@ CREATE TABLE `invoices` (
   `invoice_id` int(11) NOT NULL,
   `order_id` int(10) UNSIGNED NOT NULL,
   `vehicle_id` int(11) NOT NULL,
-  `total_amount` int(11) NOT NULL,
   `notes` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `invoices`
---
-
-INSERT INTO `invoices` (`invoice_id`, `order_id`, `vehicle_id`, `total_amount`, `notes`) VALUES
-(0, 1, 1, 1, 'hi');
 
 -- --------------------------------------------------------
 
@@ -58,15 +50,16 @@ CREATE TABLE `orders` (
   `shipping_city` varchar(100) DEFAULT NULL,
   `shipping_zip` varchar(20) DEFAULT NULL,
   `order_status` enum('pending','processing','shipped','ready_for_pickup','delivered','cancelled') NOT NULL,
-  `ordered_at` datetime NOT NULL DEFAULT current_timestamp()
+  `ordered_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `total_amount` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `user_id`, `phone_id`, `quantity`, `delivery_method`, `shipping_address`, `shipping_city`, `shipping_zip`, `order_status`, `ordered_at`) VALUES
-(1, 3, 1, 1, 'delivery', 'test', 'teset', '123', 'processing', '2025-07-27 20:37:59');
+INSERT INTO `orders` (`order_id`, `user_id`, `phone_id`, `quantity`, `delivery_method`, `shipping_address`, `shipping_city`, `shipping_zip`, `order_status`, `ordered_at`, `total_amount`) VALUES
+(1, 3, 1, 1, 'delivery', 'test', 'teset', '123', 'processing', '2025-07-27 20:37:59', 0);
 
 -- --------------------------------------------------------
 
@@ -117,7 +110,21 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `email`, `password`, `first_name`, `last_name`, `phone_number`, `role`, `timestamp`) VALUES
 (1, 'lawlasaw619@gmail.com', '$2y$10$F/bu0mAiGFAgC1Pk3sDq1OO1c.UDoiWWlJaFAqJTyOKQSRL1fzSQK', 'saw', 'saw', '09', 'customer', '2025-07-19 10:19:00'),
 (2, 'lawlasaw132@gmail.com', '$2y$10$F/bu0mAiGFAgC1Pk3sDq1OO1c.UDoiWWlJaFAqJTyOKQSRL1fzSQK', 'saw', 'law la', '09458838578', 'admin', '2025-07-19 10:33:31'),
-(3, 'moseslinthant2004@gmail.com', '$2y$10$S7OHYGnaKGKqqo9iui6/YugKckBZL5QSpqZhIEqtHjEzx4exbKPvK', 'Moses', 'Lin Thant', '0636154094', 'customer', '2025-07-27 13:24:27');
+(3, 'moseslinthant2004@gmail.com', '$2y$10$S7OHYGnaKGKqqo9iui6/YugKckBZL5QSpqZhIEqtHjEzx4exbKPvK', 'Moses', 'Lin Thant', '0636154094', 'customer', '2025-07-27 13:24:27'),
+(4, 'koko@gmail.com', '$2y$10$uhmpjDDRbYtyDJc/vUN3Uuu7OWoGmdN1UCen5xJwICCft8gs3rgy6', 'koko@gmail.com', 'aung', '0636154094', 'customer', '2025-08-02 14:00:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicles`
+--
+
+CREATE TABLE `vehicles` (
+  `vehicle_id` int(255) NOT NULL,
+  `driver_name` varchar(255) NOT NULL,
+  `license_plate` varchar(255) NOT NULL,
+  `weight_kg` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -128,7 +135,8 @@ INSERT INTO `users` (`user_id`, `email`, `password`, `first_name`, `last_name`, 
 --
 ALTER TABLE `invoices`
   ADD PRIMARY KEY (`invoice_id`),
-  ADD KEY `order_id` (`order_id`);
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `vehicle_id` (`vehicle_id`);
 
 --
 -- Indexes for table `orders`
@@ -152,6 +160,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `vehicles`
+--
+ALTER TABLE `vehicles`
+  ADD PRIMARY KEY (`vehicle_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -171,7 +185,7 @@ ALTER TABLE `phones`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -181,7 +195,8 @@ ALTER TABLE `users`
 -- Constraints for table `invoices`
 --
 ALTER TABLE `invoices`
-  ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
+  ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
+  ADD CONSTRAINT `invoices_ibfk_2` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicles` (`vehicle_id`);
 
 --
 -- Constraints for table `orders`

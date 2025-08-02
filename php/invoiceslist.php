@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 // Path to db.php relative to invoices.php (they are in the same folder)
 require_once 'db.php';
 
-$sql = "SELECT invoice_id, order_id, vehicle_id, total_amount, notes FROM invoices";
+$sql = "SELECT invoice_id, order_id, vehicle_id,  notes FROM invoices";
 $result = $conn->query($sql);
 
 $invoices = [];
