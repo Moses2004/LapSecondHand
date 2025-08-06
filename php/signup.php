@@ -162,11 +162,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form-box">
       <h2>Signup</h2>
       <form method="POST" action="signup.php">
-        First name<input type="text" name="first_name" placeholder="Enter your first name" required>
+        First name
+        <input type="text" name="first_name" placeholder="Enter your first name" required>
         Last name<input type="text" name="last_name" placeholder="Enter your last name" required>
-        <input type="text" name="phone" placeholder="Enter your phone number" required>
-        <input type="email" name="email" placeholder="Enter your email" required>
-        <input type="password" name="password" placeholder="Enter your password" required>
+       Phone number <input type="text" name="phone" placeholder="Enter your phone number" required>
+        Email<input type="email" name="email" placeholder="Enter your email" required>
+        Password<input type="password" name="password" placeholder="Enter your password" required>
         <button type="submit">Signup</button>
       </form>
       <div class="login-link">
