@@ -16,8 +16,8 @@ $json_data = file_get_contents('php://input');
 $data = json_decode($json_data, true); // Decode JSON into an associative array
 
 // Check if data is received and valid for the new columns
-if (empty($data) || !isset($data['order_id'], $data['vehicle_id'], $data['total_amount'])) {
-    echo json_encode(['success' => false, 'message' => 'Invalid input data. Please fill all required fields (Order ID, Vehicle ID, Total Amount).']);
+if (empty($data) || !isset($data['order_id'], $data['vehicle_id'])) {
+    echo json_encode(['success' => false, 'message' => 'Invalid input data. Please fill all required fields (Order ID, Vehicle ID).']);
     if (isset($conn) && $conn instanceof mysqli) {
         $conn->close();
     }
@@ -27,7 +27,7 @@ if (empty($data) || !isset($data['order_id'], $data['vehicle_id'], $data['total_
 // Sanitize and validate input for the new columns
 $order_id = filter_var($data['order_id'], FILTER_VALIDATE_INT);
 $vehicle_id = filter_var($data['vehicle_id'], FILTER_VALIDATE_INT);
-$total_amount = filter_var($data['total_amount'], FILTER_VALIDATE_INT); // Keeping INT as per your DB schema
+
 $notes = isset($data['notes']) ? htmlspecialchars(trim($data['notes'])) : null;
 
 // Basic validation
@@ -48,7 +48,7 @@ if ($vehicle_id === false || $vehicle_id <= 0) {
 
 
 // Prepare and bind SQL statement for the new columns
-$stmt = $conn->prepare("INSERT INTO invoices (order_id, vehicle_id, total_amount, notes) VALUES (?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO invoices (order_id, vehicle_id, notes) VALUES (?, ?, ?)");
 
 if ($stmt === false) {
     echo json_encode(['success' => false, 'message' => 'Failed to prepare statement: ' . $conn->error]);
@@ -60,7 +60,7 @@ if ($stmt === false) {
 
 // 'i' for integer, 's' for string
 // Assuming order_id, vehicle_id, total_amount are integers and notes is a string (text)
-$stmt->bind_param("iiis", $order_id, $vehicle_id, $total_amount, $notes);
+$stmt->bind_param("iis", $order_id, $vehicle_id, $notes);
 
 // Execute the statement
 if ($stmt->execute()) {
