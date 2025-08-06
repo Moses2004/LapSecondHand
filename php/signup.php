@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #9D50BB, #6E48AA);
+      background: linear-gradient(to right, #edededff, #6E48AA);
     }
 
     header, footer {
@@ -48,9 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     header {
-      background-color: #001F5B;
-      font-size: 20px;
-      position: relative;
+  background: linear-gradient(to right, #003366, #cc0000);
+  color: white;
+  padding: 25px;
     }
 
     footer {
@@ -63,11 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       top: 5px;
       left: 15px;
       height: 60px;
+      border-radius: 50%;
     }
 
     .top-right-login {
       position: absolute;
-      top:10px;
+      top:20px;
       right: 20px;
     }
 
@@ -77,10 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       font-weight: bold;
     }
 
-    .container {
-      display: flex;
-      height: calc(90vh - 50px); /* subtract header and footer height */
-    }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 160px); /* Adjust based on your header + footer height */
+  padding: 20px;
+}
 
     .left {
       flex: 1;
@@ -95,8 +99,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     .form-box {
       background: white;
-      padding: 30px;
-      border-radius: 20px;
+      padding: 50px;
+      border-radius: 30px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       width: 100%;
       max-width: 350px;
@@ -111,10 +115,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     input[type="text"],
     input[type="email"],
     input[type="password"] {
-      width: 100%;
+      width: 95%;
       padding: 12px;
       margin: 8px 0;
-      border-radius: 10px;
+      border-radius: 20px;
       border: none;
       background: #e0dede;
     }
@@ -133,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     .login-link {
       text-align: center;
-      margin-top: 15px;
+      margin-top: 20px;
     }
 
     .login-link a {
@@ -154,13 +158,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </header>
 
 <div class="container">
-  <div class="left"></div>
-  <div class="right">
+
     <div class="form-box">
       <h2>Signup</h2>
       <form method="POST" action="signup.php">
-        <input type="text" name="first_name" placeholder="Enter your first name" required>
-        <input type="text" name="last_name" placeholder="Enter your last name" required>
+        First name<input type="text" name="first_name" placeholder="Enter your first name" required>
+        Last name<input type="text" name="last_name" placeholder="Enter your last name" required>
         <input type="text" name="phone" placeholder="Enter your phone number" required>
         <input type="email" name="email" placeholder="Enter your email" required>
         <input type="password" name="password" placeholder="Enter your password" required>
@@ -170,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Already have account? <a href="login.php">Login</a>
       </div>
     </div>
-  </div>
+  
 </div>
 
 <footer>
