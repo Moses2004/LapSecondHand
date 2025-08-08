@@ -8,7 +8,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $phone      = $_POST['phone'];
     $role       = 'customer';
-
+      $check_stmt = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
+    $check_stmt->bind_param("s", $email);
+    $check_stmt->execute();
+    $check_stmt->store_result();
+        if ($check_stmt->num_rows > 0) {
+        echo "<script>alert('Email already exists! Please use another email.'); window.location.href='signup.php';</script>";
+        $check_stmt->close();
+        exit;
+        }
+        $check_stmt->close();
     $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, password, phone_number, role) 
                             VALUES (?, ?, ?, ?, ?, ?)");
 
