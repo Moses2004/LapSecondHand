@@ -9,30 +9,31 @@
     <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Dashboard</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="invoiceslist.html">Invoices List</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="invoices.html">Add Invoice</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="vehicleslist.html">Vehicles List</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="vehicles.html">Add Vehicle</a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="invoiceslist.html">Invoices List</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Removed hardcoded 'active' class -->
+                    <a class="nav-link" href="invoices.html">Add Invoice</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vehicleslist.html">Vehicles List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vehicles.html">Add Vehicle</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
     <div class="container">
         <h2>Create New Vehicle</h2>
         
@@ -71,5 +72,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="../js/vehicles.js"></script>
+    <script src="../js/navbar.js"></script>
 </body>
 </html>
