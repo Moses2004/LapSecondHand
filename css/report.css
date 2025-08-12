@@ -1,0 +1,408 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8; /* Lighter, more modern background grey */
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+h1, h2, h3 {
+    color: #003366; /* Darker blue from your homepage header */
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Header and Logo (Updated to match homepage design) */
+.main-header {
+    background: linear-gradient(to right, #003366, #cc0000); /* Blue to Red gradient from homepage */
+    color: white;
+    padding: 20px; /* Adjust padding as per homepage header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.header-content { /* From your homepage header-content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%; /* Ensure it spans full width */
+}
+
+.left-header { /* From your homepage left-header */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo { /* From your homepage logo */
+    width: 80px; /* Adjusted size for admin dashboard header */
+    height: 80px; /* Adjusted size */
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Add a subtle shadow */
+    transition: transform 0.3s ease-in-out;
+}
+.logo:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.header-text h1 { /* From your homepage header-text h1 */
+    margin: 0;
+    font-size: 26px; /* Adjusted font size */
+    color: #FFFFFF;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.header-text p { /* From your homepage header-text p */
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Tab Navigation (Integrated into header-content) */
+.report-tabs {
+    /* No background here, as main-header already has a gradient */
+    display: flex;
+    gap: 5px; /* Spacing between buttons */
+    margin-left: auto; /* Push to the right */
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly transparent white for tabs */
+    border-radius: 8px; /* More rounded corners */
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow for tab container */
+}
+
+.tab-button {
+    padding: 12px 22px; /* Adjusted padding for buttons */
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px; /* Slightly larger font */
+    color: #e0f2f7; /* Lighter blue for inactive tabs to contrast with gradient */
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 0.5px;
+}
+
+.tab-button:hover {
+    background-color: rgba(255, 255, 255, 0.25); /* More visible hover on transparent background */
+    color: #fff;
+}
+
+.tab-button.active {
+    background-color: #cc0000; /* Active tab Red from homepage design */
+    color: #FFFFFF;
+    font-weight: bold;
+    box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.4); /* Thicker bottom border effect */
+    border-radius: 8px; /* Maintain rounded corners when active */
+}
+
+/* Rest of your existing style.css (main-container, filters, cards, charts, table, responsive) */
+/* ... */
+
+/* Main Content Area */
+.report-container {
+    padding: 30px;
+    background-color: #FFFFFF;
+    margin: 30px auto; /* More margin */
+    border-radius: 12px; /* More rounded corners for main container */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Deeper, softer shadow */
+    max-width: 1200px;
+    animation: fadeIn 0.8s ease-out; /* Fade in animation for the whole container */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Report Content Sections */
+.report-content {
+    display: none;
+    padding: 20px 0;
+    animation: slideInFromTop 0.5s ease-out forwards; /* Slide in animation for content */
+}
+
+.report-content.active {
+    display: block;
+}
+
+@keyframes slideInFromTop {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Filters Section */
+.filters {
+    background-color: #e3f2fd; /* Lighter blue, softer look */
+    padding: 25px; /* More padding */
+    margin-bottom: 40px; /* More space below filters */
+    border-radius: 10px; /* More rounded corners */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Increased gap */
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Shadow for filter section */
+}
+
+.filters label {
+    font-weight: 600; /* Bolder label */
+    color: #4a6781; /* Darker blue-grey for labels */
+    min-width: 80px; /* Ensure labels have some consistent width */
+}
+
+.filters input[type="date"],
+.filters input[type="text"],
+.filters select {
+    padding: 12px 15px; /* More padding */
+    border: 1px solid #cceeff; /* Lighter blue border */
+    border-radius: 6px; /* Slightly more rounded */
+    font-size: 16px;
+    color: #555;
+    background-color: #fdfefe; /* Almost white background */
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 180px; /* Adjusted min-width */
+}
+
+.filters input[type="date"]:focus,
+.filters input[type="text"]:focus,
+.filters select:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Focus ring */
+    outline: none;
+}
+
+.filter-button {
+    background-color: #cc0000; /* Red button from homepage */
+    color: white;
+    padding: 12px 25px; /* More padding */
+    border: none;
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(204, 0, 0, 0.3); /* Red shadow for button */
+}
+
+.filter-button:hover {
+    background-color: #aa0000; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(204, 0, 0, 0.4);
+}
+.filter-button:active {
+    transform: translateY(0); /* Press down effect */
+    box-shadow: 0 2px 4px rgba(204, 0, 0, 0.3);
+}
+
+/* Summary Cards */
+.summary-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Increased gap between cards */
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fefefe; /* Pure white for cards */
+    border: 1px solid #e0e0e0; /* Subtle border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 25px; /* More padding */
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Deeper shadow for cards */
+    min-width: 280px; /* Adjusted min-width */
+    flex: 1;
+    max-width: 320px; /* Adjusted max-width */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #003366; /* Blue from homepage for card titles */
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card .count {
+    font-size: 44px; /* Larger count font */
+    font-weight: 800; /* Bolder count */
+    color: #cc0000; /* Red from homepage for counts */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle text shadow */
+}
+
+/* Charts Grid */
+.charts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Increased gap */
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.chart-item {
+    background-color: #FFFFFF;
+    padding: 25px; /* More padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Deeper shadow for charts */
+    flex: 1;
+    min-width: 480px; /* Adjusted min-width for charts */
+    max-width: calc(50% - 15px); /* Max width for two columns, accounting for gap */
+    height: 400px; /* Increased height for charts */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+}
+
+@media (max-width: 1024px) { /* Adjust for larger tablets/smaller desktops */
+    .chart-item {
+        min-width: 400px; /* Slightly smaller min-width */
+        max-width: 100%; /* Go full width earlier if needed */
+    }
+}
+@media (max-width: 768px) {
+    .chart-item {
+        min-width: unset; /* Remove min-width on mobile */
+        max-width: 100%;
+        height: 300px; /* Smaller height on mobile */
+    }
+}
+
+
+/* Table Styling */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px; /* Rounded corners for table */
+    overflow: hidden; /* Ensures rounded corners apply to content */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Deeper shadow for table */
+}
+
+table thead {
+    background-color: #003366; /* Blue header from homepage */
+    color: #fff;
+}
+
+table th, table td {
+    padding: 15px 20px; /* More padding */
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0; /* Lighter border */
+}
+
+table th {
+    font-weight: 600; /* Bolder table headers */
+    text-transform: uppercase; /* Uppercase headers */
+    font-size: 15px;
+    white-space: nowrap; /* Prevent headers from wrapping too much */
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Lighter zebra striping */
+}
+
+table tbody tr:hover {
+    background-color: #eef7ff; /* Lighter blue hover effect */
+    transition: background-color 0.2s ease;
+}
+
+/* Responsive Adjustments (from previous response) */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    .site-title { /* Old title, replaced by .header-text h1 */
+        font-size: 20px;
+    }
+    .report-tabs {
+        width: 100%;
+        margin-top: 15px;
+        flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+    }
+    .tab-button {
+        flex-grow: 1;
+        font-size: 14px;
+        padding: 10px;
+    }
+    .report-container {
+        padding: 15px;
+        margin: 15px;
+    }
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+    }
+    .filters input, .filters select, .filter-button {
+        width: 100%;
+        min-width: unset;
+    }
+    .summary-cards {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .card {
+        width: 100%;
+        max-width: none;
+    }
+    .charts-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .chart-item {
+        max-width: 100%;
+        min-width: unset;
+        height: 280px; /* Adjust height for small screens */
+    }
+    table th, table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo { /* Changed from .company-logo to .logo */
+        height: 45px;
+        width: 45px;
+    }
+    .header-text h1 { /* Changed from .site-title to .header-text h1 */
+        font-size: 18px;
+    }
+    .tab-button {
+        font-size: 12px;
+        padding: 8px;
+    }
+    .filter-button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    .card .count {
+        font-size: 32px;
+    }
+}

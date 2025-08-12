@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAP Admin Dashboard - Phone Shop Reports</title>
+    <link rel="stylesheet" href="css/report.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="left-header">
+                <img src="image/logo.png" alt="Logo" class="logo" /> <div class="header-text">
+                    <h1>LAP Second Hand Phone Service</h1>
+                    <p>Your trusted phone resale platform</p>
+                </div>
+            </div>
+            <nav class="report-tabs">
+                <button class="tab-button active" data-report-type="sales">Sales Report</button>
+                <button class="tab-button" data-report-type="orders">Order Report</button>
+                <button class="tab-button" data-report-type="inventory">Inventory Report</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="report-container">
+        <section id="sales-report-content" class="report-content active">
+            <h2>Sales Overview</h2>
+            <div class="filters">
+                <label for="sales-start-date">From:</label>
+                <input type="date" id="sales-start-date">
+                <label for="sales-end-date">To:</label>
+                <input type="date" id="sales-end-date">
+                <label for="sales-brand">Brand:</label>
+                <input type="text" id="sales-brand" placeholder="e.g. Samsung">
+                <button class="filter-button" onclick="fetchSalesReport()">Apply Filters</button>
+            </div>
+            <div class="summary-cards">
+                <div class="card">
+                    <h3>Total Phones Sold</h3>
+                    <p id="total-sold" class="count">0</p>
+                </div>
+            </div>
+            <div class="charts-grid">
+                <div class="chart-item"><canvas id="salesByBrandChart"></canvas></div>
+                <div class="chart-item"><canvas id="salesByMonthChart"></canvas></div>
+            </div>
+        </section>
+
+        <section id="orders-report-content" class="report-content">
+            <h2>Orders Overview</h2>
+            <div class="filters">
+                <label for="orders-start-date">From:</label>
+                <input type="date" id="orders-start-date">
+                <label for="orders-end-date">To:</label>
+                <input type="date" id="orders-end-date">
+                <label for="orders-status">Status:</label>
+                <select id="orders-status">
+                    <option value="">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="processing">Processing</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="ready_for_pickup">Ready for Pickup</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+                <button class="filter-button" onclick="fetchOrderReport()">Apply Filters</button>
+            </div>
+            <div class="charts-grid">
+                 <div class="chart-item"><canvas id="ordersByStatusChart"></canvas></div>
+            </div>
+            <h3>Recent Orders Details</h3>
+            <div class="table-responsive">
+                <table id="recent-orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Buyer</th>
+                            <th>Phone</th>
+                            <th>Qty</th>
+                            <th>Delivery Method</th>
+                            <th>Shipping Address</th>
+                            <th>Status</th>
+                            <th>Order Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="inventory-report-content" class="report-content">
+            <h2>Inventory Overview</h2>
+            <div class="filters">
+                <label for="inventory-brand">Brand:</label>
+                <input type="text" id="inventory-brand" placeholder="e.g. Apple">
+                <label for="inventory-color">Color:</label>
+                <input type="text" id="inventory-color" placeholder="e.g. Black">
+                <button class="filter-button" onclick="fetchInventoryReport()">Apply Filters</button>
+            </div>
+            <div class="summary-cards">
+                <div class="card">
+                    <h3>Total Available Phones</h3>
+                    <p id="total-available" class="count">0</p>
+                </div>
+            </div>
+            <div class="charts-grid">
+                <div class="chart-item"><canvas id="inventoryByBrandChart"></canvas></div>
+                <div class="chart-item"><canvas id="inventoryByColorChart"></canvas></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/report.js"></script>
+</body>
+</html>
