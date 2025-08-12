@@ -1,0 +1,90 @@
+/* Custom CSS for Phone List Page - Table Layout */
+
+/* Color Variables from Dashboard Theme */
+:root {
+    --primary-gradient: linear-gradient(135deg, #4a69bd 0%, #1e3c72 100%);
+    --secondary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --accent-color: #4a69bd;
+    --text-dark: #2c3e50;
+    --background-light: #f8f9fa;
+    --border-color: #e9ecef;
+}
+
+body {
+    background: var(--background-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+}
+
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.custom-header {
+    background: var(--primary-gradient);
+    border: none;
+    padding: 20px;
+}
+
+/* Table Styling */
+.table-responsive {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table-light {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table th, .table td {
+    padding: 1rem;
+    border-color: var(--border-color);
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.phone-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Search bar styling */
+.input-group .form-control {
+    border-radius: 8px 0 0 8px;
+}
+
+.input-group .btn {
+    border-radius: 0 8px 8px 0;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: var(--accent-color) !important;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+    color: white;
+    border: none;
+}
