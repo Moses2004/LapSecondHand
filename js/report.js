@@ -1,7 +1,7 @@
 // --- Configuration ---
 // Change this to your actual API base URL.
 // If your PHP API files are in 'htdocs/phoneshop_reports/api/':
-const API_BASE_URL = '/phoneshop_reports/api';
+const API_BASE_URL = '/Web_Programming/LapSecondHand/php';
 
 // Chart instances (to destroy and re-create for updates)
 let salesByBrandChart, salesByMonthChart, ordersByStatusChart, inventoryByBrandChart, inventoryByColorChart;

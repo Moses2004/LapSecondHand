@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once 'db.php';
 
 // Get filter parameters
 $startDate = $_GET['start_date'] ?? null;
