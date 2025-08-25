@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$db = 'phoneshop_sll';  // make sure this matches your uploaded DB name
-$user = 'root';         // default for XAMPP
-$pass = '';             // default for XAMPP
+$db = 'phoneshop_sll';  
+$user = 'root';         
+$pass = '';             
 
 $conn = new mysqli($host, $user, $pass, $db);
 

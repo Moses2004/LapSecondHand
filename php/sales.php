@@ -1,5 +1,11 @@
 <?php
-require_once 'config.php';
+
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+
+
+
+require_once 'db.php';
 
 // Get filter parameters
 $startDate = $_GET['start_date'] ?? null;

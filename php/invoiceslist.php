@@ -1,5 +1,7 @@
 <?php
-// invoiceslist.php (your data fetcher)
+
+
+ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 ini_set('display_errors', 1); // For debugging
 ini_set('display_startup_errors', 1);
