@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Phone - PhoneShop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/phones.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+</head>
+<body>
+    <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="invoiceslist.html">Invoices List</a>
+                </li>
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="invoices.html">Add Invoice</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vehicleslist.html">Vehicles List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vehicles.html">Add Vehicle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="phones.html">Add Phone</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="phoneslist.html">Phones List</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="usermanagement.html">User Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="report.html">Reports</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header custom-header">
+                        <h3 class="text-white mb-0 text-center">Add New Phone</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- Success/Error Messages -->
+                        <div id="messageContainer"></div>
+                        
+                        <form id="phoneForm" enctype="multipart/form-data">
+                            <div class="row">
+                                <!-- Brand -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="brand" class="form-label">Brand <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="brand" name="brand" required maxlength="50">
+                                </div>
+                                
+                                <!-- Model -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="model" class="form-label">Model <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="model" name="model" required maxlength="100">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Color -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="color" class="form-label">Color <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="color" name="color" required maxlength="50">
+                                </div>
+                                
+                                <!-- Price -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="price" class="form-label">Price ($) <span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" id="price" name="price" step="0.01" min="0" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Stock -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="stock" class="form-label">Stock Quantity <span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" id="stock" name="stock" min="0" required>
+                                </div>
+                                
+                                <!-- Image Upload -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="image" class="form-label">Phone Image</label>
+                                    <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                                    <div class="form-text">Accepted formats: JPG, PNG, GIF (Max: 5MB)</div>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter phone description, features, specifications..."></textarea>
+                            </div>
+
+                            <!-- Image Preview -->
+                            <div class="mb-3" id="imagePreview" style="display: none;">
+                                <label class="form-label">Image Preview:</label>
+                                <div class="border rounded p-3 text-center">
+                                    <img id="previewImg" src="" alt="Preview" style="max-width: 200px; max-height: 200px;">
+                                </div>
+                            </div>
+
+                            <!-- Submit Buttons -->
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="button" class="btn btn-secondary me-md-2" onclick="resetForm()">Reset</button>
+                                <button type="submit" class="btn custom-btn" id="submitBtn">
+                                    <span class="spinner-border spinner-border-sm d-none" id="loadingSpinner"></span>
+                                    Add Phone
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/phones.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* Custom navbar styling to match LAP Phone Service theme */
+.navbar {
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, #003366, #cc0000) !important;
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* All other nav links styling */
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: bold;
+    margin: 0 15px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffcccc !important;
+}
+
+.navbar-nav .nav-link.active {
+    color: white !important;
+}
+
+/* Active link underline effect like in the original design */
+.navbar-nav .nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 3px;
+    background-color: #ffcccc;
+    border-radius: 5px;
+}
+
+/* Mobile toggle button styling */
+.navbar-toggler {
+    border: 1px solid white;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Styling for the Reports link inside the navbar-nav list */
+.navbar-nav .nav-link[href="report.html"] {
+    background-color: transparent;
+    border: 2px solid #ffcccc; /* Lighter red border */
+    color: white !important;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 204, 204, 0.4); /* Subtle glow effect */
+}
+
+.navbar-nav .nav-link[href="report.html"]:hover {
+    background-color: #ffcccc;
+    color: #003366 !important;
+    border-color: #ffcccc;
+    box-shadow: 0 6px 15px rgba(255, 204, 204, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+    }
+
+    .navbar-nav .nav-link.active::after {
+        left: 0;
+        transform: none;
+        width: 100%;
+    }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAP Second Hand Phone Service</title>
+    <link rel="icon" type="image/png" href="../image/favicon-32x32.png" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/aboutstyle.css"> 
+    <style>
+       
+        .nav-orders {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="left-header">
+            <img src="../image/photo_2025-07-14_14-38-08.jpg" alt="Logo" class="logo" />
+            <div class="header-text">
+                <h1>LAP Second Hand Phone Service</h1>
+                <p>Your trusted phone resale platform</p>
+            </div>
+        </div>
+        <div class="auth-box">
+            <a href="../php/login.php" class="login">Login</a>
+            <a href="../php/signup.php" class="signup">Signup</a>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <a href="#home" class="nav-link active" data-target="home">Home</a>
+    <a href="#about" class="nav-link" data-target="about">About</a>
+    <a href="#contact" class="nav-link" data-target="contact">Contact</a>
+</nav>
+
+<main id="main-content">
+    <section id="home-section" class="active-section content-section">
+        <section class="search-section">
+            <input type="text" id="searchInput" placeholder="Search for a phone..." />
+            <div class="dropdown-inline">
+                <span class="dropdown-btn">Categories ▾</span>
+                <div class="dropdown-content" id="categoryDropdownContent">
+                    <a href="#" data-category="All">All Categories</a>
+                    <a href="#" data-category="Apple">iPhone</a>
+                    <a href="#" data-category="Samsung">Samsung</a>
+                    <a href="#" data-category="Huawei">Huawei</a>
+                    <a href="#" data-category="Oppo">Oppo</a>
+                    <a href="#" data-category="Xiaomi">Xiaomi</a>
+                </div>
+            </div>
+            <button id="searchButton">Search</button>
+        </section>
+
+        <section class="featured">
+            <h2>Featured Phones</h2>
+            <div class="phones-wrapper">
+                <button class="scroll-btn scroll-left" onclick="window.scrollPhones(-1)">‹</button>
+                <div class="phones" id="phoneContainer">
+                    <p>Loading featured phones...</p>
+                </div>
+                <button class="scroll-btn scroll-right" onclick="window.scrollPhones(1)">›</button>
+            </div>
+        </section>
+    </section>
+</main>
+
+<footer>
+    <p>Contact us: <a href="mailto:info@lapphones.com">info@lapphones.com</a></p>
+    <p>&copy; 2025 LAP Second Hand Phone Service</p>
+</footer>
+
+<script src="../js/SCRIPTS.js"></script>
+</body>
+</html>

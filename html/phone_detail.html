@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone Details - LAP Second Hand Phone Service</title>
+    <link rel="icon" type="image/png" href="../image/favicon-32x32.png" />
+    <link rel="stylesheet" href="../css/style.css" /> 
+    <style>
+        /* Specific styles for phone detail page */
+        .detail-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .detail-container h1 {
+            color: #003366;
+            margin-bottom: 20px;
+        }
+        .phone-detail-content {
+            display: flex;
+            flex-direction: column; /* Default to column for smaller screens */
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+        }
+        .phone-detail-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        .phone-info {
+            flex-grow: 1;
+        }
+        .phone-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .phone-info .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #cc0000;
+            margin-top: 15px;
+        }
+        .back-to-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-to-home:hover {
+            background-color: #002244;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .phone-detail-content {
+                flex-direction: row; /* Row for larger screens */
+            }
+            .phone-detail-content img {
+                max-width: 40%; /* Adjust image size on larger screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="left-header">
+            <img src="../image/photo_2025-07-14_14-38-08.jpg" alt="Logo" class="logo" />
+            <div class="header-text">
+                <h1>LAP Second Hand Phone Service</h1>
+                <p>Your trusted phone resale platform</p>
+            </div>
+        </div>
+        <div class="auth-box">
+            <a href="../php/login.php" class="login">Login</a>
+            <a href="../php/signup.php" class="signup">Signup</a>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
+
+<div class="detail-container">
+    <h1>Phone Details</h1>
+    <div id="phoneDetails" class="phone-detail-content">
+        <p>Loading phone details...</p>
+    </div>
+    <a href="index.html" class="back-to-home">← Back to Homepage</a>
+</div>
+
+<footer>
+    <p>Contact us: <a href="mailto:info@lapphones.com">info@lapphones.com</a></p>
+    <p>&copy; 2025 LAP Second Hand Phone Service</p>
+</footer>
+
+<script src="../js/SCRIPTS.js"></script>
+</body>
+</html>

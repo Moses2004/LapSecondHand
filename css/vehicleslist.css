@@ -1,0 +1,43 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1000px; /* Slightly wider to accommodate new column */
+}
+
+h1 {
+    color: #343a40;
+}
+
+/* Table Enhancements */
+.table th {
+    background-color: #e9ecef;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > td {
+    background-color: rgba(0, 0, 0, 0.025);
+}
+
+/* Total Amount Column Styling */
+.table td.text-end {
+    text-align: right !important;
+}
+
+.table td.fw-semibold {
+    font-weight: 600 !important;
+    color: #198754; /* Bootstrap success color for money */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+}

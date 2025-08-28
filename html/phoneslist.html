@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone List - PhoneShop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/phoneslist.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="invoiceslist.html">Invoices List</a>
+                </li>
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="invoices.html">Add Invoice</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vehicleslist.html">Vehicles List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vehicles.html">Add Vehicle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="phones.html">Add Phone</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="phoneslist.html">Phones List</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="usermanagement.html">User Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="report.html">Reports</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header custom-header">
+                        <h3 class="text-white mb-0 text-center">Phone List</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="input-group mb-4">
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search by brand or model...">
+                            <button class="btn btn-secondary" type="button" id="clearSearchBtn">Clear</button>
+                        </div>
+                        
+                        <div id="loadingSpinner" class="text-center my-5">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Loading phones...</p>
+                        </div>
+                        
+                        <div id="messageContainer" class="alert alert-danger d-none" role="alert"></div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle" id="phoneTable">
+                                <thead class="table-light">
+                                    <tr>
+                                       
+                                        <th>Brand</th>
+                                        <th>Model</th>
+                                        <th>Color</th>
+                                        <th>Price</th>
+                                        <th>Stock</th>
+                                        <th>Date Added</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="phoneTableBody">
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/phoneslist.js"></script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+}
+
+/* Header Section */
+header {
+    background: linear-gradient(to right, #003366, #cc0000);
+    color: white;
+    padding: 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.header-text p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.auth-box {
+    display: flex;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.auth-box a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.auth-box .login {
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.auth-box .signup {
+    background-color: #cc0000;
+}
+
+.auth-box .signup:hover {
+    background-color: #aa0000;
+}
+
+.auth-box .login:hover {
+    background-color: white;
+    color: #002244;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #002244;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px; 
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #ffcccc;
+}
+
+nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ffcccc;
+    border-radius: 5px;
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0;
+    flex-wrap: wrap; 
+    padding: 0 15px; 
+}
+
+.search-section input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    max-width: 100%; 
+    border-radius: 5px;
+    border: 1px solid #888;
+    box-sizing: border-box; 
+}
+
+.search-section button {
+    padding: 10px 15px;
+    background-color: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-section button:hover {
+    background-color: #aa0000;
+}
+
+/* Dropdown Menu (inline with search) */
+.dropdown-inline {
+    position: relative;
+    display: inline-block; /* Keep it inline with search elements */
+}
+
+.dropdown-btn {
+    background-color: #003366;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-btn:hover {
+    background-color: #002244;
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the button */
+    left: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 10; /* Ensure it's above other content */
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: #002244;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-inline:hover .dropdown-content {
+    display: block; /* Show on hover */
+}
+
+/* Featured Phones Section */
+.featured {
+    padding: 40px 0; 
+    background-color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.featured h2 {
+    color: #003366;
+    margin-bottom: 30px;
+}
+
+.phones-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1200px; /* Max width for the carousel */
+    margin: 0 auto; 
+    padding: 0 15px; 
+    box-sizing: border-box;
+}
+
+.phones {
+    display: flex;
+    overflow-x: auto; 
+    gap: 20px;
+    scroll-behavior: smooth;
+    padding: 20px 0; 
+    scroll-snap-type: x mandatory; 
+    flex: 1; 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.phones::-webkit-scrollbar {
+    display: none; 
+}
+
+/* 5 phones in a row (adjusted width) */
+.phone-card {
+    min-width: 19%; 
+    scroll-snap-align: start; 
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    flex-shrink: 0; 
+    text-align: left; 
+    cursor: pointer; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 220px;
+}
+
+.phone-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.phone-card img {
+    width: 100%;
+    border-radius: 5px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.phone-card h3 {
+    margin: 0 0 5px;
+    color: #cc0000;
+    font-size: 1.1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.phone-card p {
+    font-size: 0.8em;
+    color: #555;
+    margin: 0 0 5px;
+}
+
+/* Scroll buttons (left/right for phone cards) */
+.scroll-btn {
+    background-color: #cc0000;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 2;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    flex-shrink: 0; 
+    width: 40px; 
+    height: 40px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-btn:hover {
+    background-color: #aa0000;
+    transform: scale(1.1);
+}
+
+.scroll-left {
+    margin-right: 10px;
+}
+
+.scroll-right {
+    margin-left: 10px;
+}
+
+/* Main Content Sections */
+.content-section {
+    padding: 40px;
+    background-color: #ffffff;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: none; 
+}
+
+.active-section {
+    display: block; 
+}
+
+.content-section h2 {
+    color: #003366;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.content-section p {
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.content-section ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.content-section ul li {
+    margin-bottom: 8px;
+}
+
+/* Contact Form Specific Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #003366;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.contact-form textarea {
+    resize: vertical; 
+    min-height: 120px;
+}
+
+.contact-form button {
+    padding: 12px 20px;
+    background-color: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease;
+}
+
+.contact-form button:hover {
+    background-color: #aa0000;
+}
+
+/* Map Container */
+.map-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.map-container iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Footer Section */
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px; 
+}
+
+footer a {
+    color: #ffcccc;
+    text-decoration: none;
+}
+
+/* Basic Responsive Adjustments */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .auth-box {
+        margin-top: 10px;
+        justify-content: center;
+    }
+    nav {
+        flex-wrap: wrap;
+        padding: 10px 5px;
+    }
+    nav a {
+        margin: 5px 10px;
+    }
+    .search-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .search-section input[type="text"],
+    .dropdown-inline,
+    .search-section button {
+        width: 80%;
+    }
+    .phones-wrapper {
+        padding: 0 5px;
+    }
+    .scroll-btn {
+        padding: 8px; 
+        font-size: 16px;
+        width: 30px;
+        height: 30px;
+    }
+    .phone-card {
+        min-width: 150px; 
+    }
+}
+
+/* Mobile-specific adjustments for phone cards */
+@media (max-width: 480px) {
+    .header-text h1 {
+        font-size: 20px;
+    }
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+    .search-section input[type="text"],
+    .dropdown-inline,
+    .search-section button {
+        width: 90%; 
+    }
+    .content-section {
+        padding: 20px;
+        margin: 10px auto;
+    }
+    .contact-form {
+        width: 90%;
+    }
+    
+    /* 2 phones in a row on smaller screens */
+    .phone-card {
+        min-width: 45%; 
+    }
+}
