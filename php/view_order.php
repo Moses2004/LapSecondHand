@@ -148,10 +148,7 @@ button {
                     <button type="submit" class="edit-btn">Edit</button>
                 </form>
                 <?php if ($order['order_status'] === 'pending'): ?>
-                <form action="delete_order.php" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this order?');">
-                    <input type="hidden" name="order_id" value="<?php echo $order['order_id']; ?>">
-                    <button type="submit" class="delete-btn">Delete</button>
-                </form>
+                
                 <?php endif; ?>
             </td>
         </tr>

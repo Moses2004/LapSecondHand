@@ -146,7 +146,7 @@ if ($stmt) {
  * Handle image upload
  */
 function handleImageUpload($file) {
-    // Updated path to use your uploadimages folder
+    // Updated path to use  uploadimages folder
     $upload_dir = '../uploadimages/';
     
     $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];

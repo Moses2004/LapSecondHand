@@ -1,8 +1,5 @@
 <?php
-/**
- * Phone List Data Fetcher
- * Fetches all phones from the database
- */
+
 
 // Include database connection
 require_once 'db.php';
